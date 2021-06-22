@@ -15,3 +15,6 @@ table > tbody:empty:before {
   top: 50%;
   transform: translateY(-50%);
 }
+#grafica {
+  width: 100% !important;
+}
