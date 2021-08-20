@@ -50,15 +50,17 @@ const LimpiarData = (data) => {
   let newArray = [];
   crearListaSprint(data);
 
+
   data.forEach((tarea) => {
-    let peso_tarea = tarea["Nuevo Segmento Pyme Fase 2"].split("(")[1];
+    const nameProject = Object.getOwnPropertyNames(tarea)[2]
+    let peso_tarea = tarea[nameProject].split("(")[1];
     if (peso_tarea) peso_tarea = peso_tarea.split(")")[0];
 
     if (!peso_tarea) {
       peso_tarea = "No hay puntaje";
     }
     let obj = {
-      tarea: tarea["Nuevo Segmento Pyme Fase 2"],
+      tarea: tarea[nameProject],
       estado: tarea.__EMPTY_1,
       responsable: tarea.__EMPTY_3,
       terminado: tarea.__EMPTY_9,
